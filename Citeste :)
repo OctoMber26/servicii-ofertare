@@ -1,0 +1,55 @@
+import { ServiciiOfertareComponent } from './servicii-ofertare/servicii-ofertare.component';
+import { AdaugareServiciuComponent } from './servicii-ofertare/adaugare-serviciu/adaugare-serviciu.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClientModule } from '@angular/common/http';
+
+De importat in app.module 
+
+
+Cel de jos este modalul de delete, butoanele si scrisul sunt centrate, daca vrei sa l iei cu copy paste si sa l folosesti si in celelalte componente
+
+<!-- Modal Delete button-->
+<div id="myDeleteModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Șterge Serviciu</h4>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="closeDeleteModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column p-5 text-center">
+          <h3>Ești sigur că vrei să ștergi acest accesoriu?</h3>
+          <div class="d-flex flex-row justify-content-center mt-4">
+            <button
+              type="submit"
+              class="btn btn-success mx-auto m-3"
+              (click)="deleteTableServiciu($event)"
+              style="width: 100px"
+            >
+              Da
+            </button>
+            <button
+              routerLink="/categorii"
+              type="submit"
+              class="btn btn-danger mx-auto m-3"
+              (click)="closeDeleteModal()"
+              style="width: 100px"
+            >
+              Nu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete button end -->

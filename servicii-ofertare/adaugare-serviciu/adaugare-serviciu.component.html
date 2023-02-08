@@ -1,0 +1,98 @@
+<!-- Modal body-->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Adaugare Serviciu</h4>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="closeModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <!-- Modal form-->
+
+      <form class="form-group mb-1" [formGroup]="serviciuForm">
+        <div class="modal-body">
+          <div class="form-group mb-1">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm"
+              placeholder="Denumire"
+              #Denumire
+              formControlName="formDenumire"
+            />
+          </div>
+          <div class="form-group mb-1">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm"
+              placeholder="Cantitate"
+              #Cantitate
+              formControlName="formCantitate"
+            />
+          </div>
+          <div class="form-group mb-1">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm"
+              placeholder="Indice"
+              #Indice
+              formControlName="formIndice"
+            />
+          </div>
+          <div class="form-group mb-1">
+            <input
+              type="text"
+              class="form-control"
+              aria-label="Small"
+              aria-describedby="inputGroup-sizing-sm"
+              placeholder="Pret"
+              #Pret
+              formControlName="fomrPret"
+            />
+          </div>
+        </div>
+      </form>
+
+      <!--End Modal form-->
+
+      <div class="modal-footer justify-content-center">
+        <button
+          type="button"
+          class="btn btn-success"
+          data-dismiss="modal"
+          style="width: 100%"
+          (click)="onAddServiciu()"
+          [disabled]="serviciuForm.invalid"
+        >
+          Salvează
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--Sfarsitul Modal body-->
+
+<!--Functionalitatea de a deschide modalul-->
+<div class="adauga-section">
+  <button
+    type="button"
+    class="btn-menu-addproduct btn btn-success mb-2"
+    (click)="openModal()"
+  >
+    Adaugă serviciu
+  </button>
+</div>

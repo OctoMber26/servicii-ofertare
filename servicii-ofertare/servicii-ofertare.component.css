@@ -1,0 +1,82 @@
+@media (max-width: 900px) {
+  #table-gestprinc table,
+  #table-gestprinc thead,
+  #table-gestprinc tbody,
+  #table-gestprinc th,
+  #table-gestprinc td,
+  #table-gestprinc tr {
+    display: block;
+  }
+
+  #table-gestprinc thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  #table-gestprinc tr {
+    border: 1px solid #ccc;
+  }
+  #table-gestprinc td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+  }
+  #table-gestprinc td:after {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 50px;
+    width: 45%;
+    padding-right: 0px;
+    white-space: nowrap;
+  }
+  #table-gestprinc td:nth-of-type(1):before {
+    content: "Id";
+    padding-right: 25%;
+  }
+  #table-gestprinc td:nth-of-type(2):before {
+    content: "Imagine";
+    padding-right: 50px;
+  }
+  #table-gestprinc td:nth-of-type(3):before {
+    content: "Cod Intern";
+    padding-right: 50px;
+  }
+  #table-gestprinc td:nth-of-type(4):before {
+    content: "Denumire";
+    padding-right: 50px;
+  }
+  #table-gestprinc td:nth-of-type(5):before {
+    content: "Producator";
+    padding-right: 50px;
+  }
+  #table-gestprinc td:nth-of-type(6):before {
+    content: "Cantitate";
+    padding-right: 50px;
+  }
+  #table-gestprinc td:nth-of-type(7):before {
+    content: "Cantitate Referinta";
+    padding-right: 50px;
+  }
+  #table-gestprinc td:nth-of-type(8):before {
+    content: "Locatie";
+    padding-right: 50px;
+  }
+  #table-gestprinc td:nth-of-type(9):before {
+    content: "Critic";
+    padding-right: 25%;
+  }
+  #table-gestprinc td:nth-of-type(10):before {
+    content: "Comandat";
+    padding-right: 25%;
+  }
+
+  .search-mobile {
+    margin-bottom: 20px;
+  }
+  .email-mobile {
+    margin-top: 50% !important;
+  }
+}

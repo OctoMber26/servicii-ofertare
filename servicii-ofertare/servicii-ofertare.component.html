@@ -1,0 +1,110 @@
+<div class="container">
+  <app-adaugare-serviciu></app-adaugare-serviciu>
+  <input
+    class="search-mobile form-control mr-sm-2 ml-5"
+    type="text"
+    placeholder="Search"
+  />
+  <div *ngIf="updateTable().length === 0">Adauga un serviciu</div>
+  <div class="table-responsiv ml-5" id="table-gestprinc">
+    <div class="table">
+      <thead *ngIf="updateTable().length > 0">
+        <tr>
+          <th scope="col">Denumire</th>
+          <th scope="col">Cantitate</th>
+          <th scope="col">Indice</th>
+          <th scope="col">Pret</th>
+        </tr>
+      </thead>
+      <tbody
+        *ngFor="
+          let info of servicii | paginate : { itemsPerPage: 10, currentPage: p }
+        "
+      >
+        <tr>
+          <td hidden>{{ info.id }}</td>
+          <td class="text-secondary">{{ info.denumire }}</td>
+          <td class="text-secondary">{{ info.cantitate }}</td>
+          <td class="text-secondary">{{ info.indice }}</td>
+          <td class="text-secondary">{{ info.pret }}</td>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenuButton1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li>
+                <a class="dropdown-item"
+                  ><button
+                    type="button"
+                    class="w-100 btn-menu btn btn-danger"
+                    (click)="openDeleteModal()"
+                  >
+                    Șterge
+                  </button></a
+                >
+              </li>
+            </ul>
+          </div>
+        </tr>
+      </tbody>
+      <pagination-controls
+        *ngIf="updateTable().length > 0"
+        (pageChange)="p = $event"
+        class="pagination-controls"
+      ></pagination-controls>
+      <div style="padding-bottom: 20px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete button-->
+<div id="myDeleteModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Șterge Serviciu</h4>
+        <button
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="closeDeleteModal()"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column p-5 text-center">
+          <h3>Ești sigur că vrei să ștergi acest accesoriu?</h3>
+          <div class="d-flex flex-row justify-content-center mt-4">
+            <button
+              type="submit"
+              class="btn btn-success mx-auto m-3"
+              (click)="deleteTableServiciu($event)"
+              style="width: 100px"
+            >
+              Da
+            </button>
+            <button
+              routerLink="/categorii"
+              type="submit"
+              class="btn btn-danger mx-auto m-3"
+              (click)="closeDeleteModal()"
+              style="width: 100px"
+            >
+              Nu
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Delete button end -->
